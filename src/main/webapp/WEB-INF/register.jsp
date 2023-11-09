@@ -8,6 +8,9 @@
 <body>
     <jsp:include page="partials/navbar.jsp" />
     <div class="container">
+        <c:if test="${sessionScope.error}">
+
+        </c:if>
         <h1>Please fill in your information.</h1>
         <form action="/register" method="post">
             <div class="form-group">

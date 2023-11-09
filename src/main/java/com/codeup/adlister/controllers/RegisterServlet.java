@@ -26,6 +26,7 @@ public class RegisterServlet extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String passwordConfirmation = request.getParameter("confirm_password");
+        HttpSession session = request.getSession();
 
         // validate input
         boolean inputHasErrors = username.isEmpty()
@@ -34,6 +35,7 @@ public class RegisterServlet extends HttpServlet {
             || (! password.equals(passwordConfirmation));
 
         if (inputHasErrors) {
+            session.setAttribute("error",inputHasErrors);
             response.sendRedirect("/register");
             return;
         }
