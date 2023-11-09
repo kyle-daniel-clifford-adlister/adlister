@@ -7,14 +7,15 @@
             <a class="navbar-brand" href="/ads">Adlister</a>
         </div>
         <ul class="nav navbar-nav navbar-right">
-            <c:if test="validLogin">
-                <li><a href="/logout">Logout</a></li>
-            </c:if>
-            <c:otherwise>
-                <li><a href="/login">Login</a></li>
-            </c:otherwise>
+            <c:choose>
+                <c:when test="${sessionScope.loginStatus.equals('logout')}">
+                    <li><a href="/logout">Logout</a></li>
+                </c:when>
+                <c:otherwise>
+                    <li><a href="/login">Login</a></li>
+                </c:otherwise>
+            </c:choose>
         </ul>
     </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
-href="/login">Login
