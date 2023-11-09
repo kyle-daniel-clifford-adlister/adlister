@@ -23,6 +23,7 @@ CREATE TABLE ads (
     PRIMARY KEY (id),
     FOREIGN KEY (user_id) REFERENCES users (id)
         ON DELETE CASCADE
+
 )
 CREATE TABLE categories
 (
@@ -45,6 +46,9 @@ INSERT INTO users(username, email, password) VALUES
 
 INSERT INTO ads(user_id, title, description, cost, category) VALUES
     ('1', 'Hellcat Pro', 'flush fitting 15-round magazine', '670.00','3,7');
+
+
+
 
 INSERT INTO ad_categories(ad_id, category_id) VALUE
     ('1', '3');
