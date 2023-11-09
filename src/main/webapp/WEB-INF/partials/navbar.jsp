@@ -15,6 +15,7 @@
                     <li><a href="/login">Login</a></li>
                 </c:otherwise>
             </c:choose>
+            <li><a href="/register">Register</a></li>
         </ul>
     </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
