@@ -10,6 +10,7 @@ public class Password {
     }
 
     public static boolean check(String password, String hash) {
+        System.out.println(BCrypt.checkpw(password, hash));
         return BCrypt.checkpw(password, hash);
     }
 }
