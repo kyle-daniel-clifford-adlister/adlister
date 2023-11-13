@@ -1,11 +1,12 @@
 USE adlister_db;
 
+DROP TABLE IF EXISTS ads;
+DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS ad_categories;
 DROP TABLE IF EXISTS categories;
-DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS ads;
 
-CREATE TABLE users (
+
+CREATE TABLE if not exists users (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     username VARCHAR(240) NOT NULL,
     email VARCHAR(240) NOT NULL,
@@ -13,7 +14,7 @@ CREATE TABLE users (
     PRIMARY KEY (id)
 );
 
-CREATE TABLE ads (
+CREATE TABLE if not exists ads (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     user_id INT UNSIGNED NOT NULL,
     title VARCHAR(240) NOT NULL,
@@ -25,13 +26,13 @@ CREATE TABLE ads (
         ON DELETE CASCADE
 
 );
-CREATE TABLE categories
+CREATE TABLE if not exists categories
 (
     id   INT UNSIGNED NOT NULL AUTO_INCREMENT,
     name VARCHAR(240) NOT NULL,
     PRIMARY KEY (id)
 );
-CREATE TABLE ad_categories
+CREATE TABLE if not exists ad_categories
 (
     ad_id       INT UNSIGNED NOT NULL,
     category_id INT UNSIGNED NOT NULL,
@@ -39,7 +40,7 @@ CREATE TABLE ad_categories
     FOREIGN KEY (category_id) REFERENCES categories (id)
 );
 INSERT INTO categories(name)
-VALUES ('Rife'), ('Shotgun'), ('Pistol'), ('Revolver'), ('Bolt Action'), ('Semi-Automatic'), ('Lever Action');
+VALUES ('Rifle'), ('Shotgun'), ('Pistol'), ('Revolver'), ('Bolt Action'), ('Semi-Automatic'), ('Lever Action');
 
 
 INSERT INTO ads(user_id, title, description, cost, category) VALUES
@@ -48,5 +49,5 @@ INSERT INTO ads(user_id, title, description, cost, category) VALUES
 
 
 
-INSERT INTO ad_categories(ad_id, category_id) VALUE
+INSERT INTO ad_categories(ad_id, category_id) VALUES
     ('1', '3');
