@@ -28,26 +28,33 @@ public class RegisterServlet extends HttpServlet {
         String password = request.getParameter("password");
         String passwordConfirmation = request.getParameter("confirm_password");
         HttpSession session = request.getSession();
+        session.setAttribute("error",false);
         //STORES Input into fields
         session.setAttribute("username",username);
         session.setAttribute("email",email);
-        //RESETS Errors
-        session.setAttribute("error",false);
-        session.setAttribute("hacker",false);
         // validate input
+        //CHECKS ORDER: 1. EMPTY INPUT 2: SUSPICIOUS INPUT 3: USER ALREADY IN SYSTEM
         boolean inputHasErrors = username.isEmpty()
             || email.isEmpty()
             || password.isEmpty()
             || (! password.equals(passwordConfirmation));
         if (inputHasErrors) {
+            session.setAttribute("emptyinp",inputHasErrors);
             response.sendRedirect("/register");
             return;
+        }else {
+            //RESETS ERROR
+            session.setAttribute("emptyinp",inputHasErrors);
         }
         if (username.contains("<")||username.contains(">")||username.contains("(")||username.contains(")")||email.contains("<")||email.contains(">")||email.contains("(")||email.contains(")")){
             session.setAttribute("hacker",true);
             response.sendRedirect("/register");
             return;
+        }else {
+            //RESETS ERROR
+            session.setAttribute("hacker",false);
         }
+        //RESETS Errors
         User checkingUser = DaoFactory.getUsersDao().findByUsername(username);
         //USER HAS TO NOT BE FOUND TO ADD TO DATABASE
         if(checkingUser == null) {

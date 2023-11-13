@@ -14,7 +14,10 @@
             <h3 style="color: red">User is already Registered, please choose a different username.</h3>
         </c:if>
         <c:if test="${sessionScope.hacker}">
-            <h3 style="color: red">Input contains suspicious characters </h3>
+            <h3 style="color: red">Input contains suspicious characters</h3>
+        </c:if>
+        <c:if test="${sessionScope.emptyinp}">
+            <h3 style="color: red">Please fill out all fields</h3>
         </c:if>
         <h1>Please fill in your information.</h1>
         <form action="/register" method="post">
