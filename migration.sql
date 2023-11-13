@@ -2,8 +2,8 @@ USE adlister_db;
 
 DROP TABLE IF EXISTS ad_categories;
 DROP TABLE IF EXISTS categories;
-DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS ads;
+DROP TABLE IF EXISTS users;
 
 CREATE TABLE users (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -22,7 +22,7 @@ CREATE TABLE ads (
     category VARCHAR(240) NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (user_id) REFERENCES users (id)
-        ON DELETE CASCADE
+#         ON DELETE CASCADE
 
 );
 CREATE TABLE categories
@@ -42,11 +42,11 @@ INSERT INTO categories(name)
 VALUES ('Rife'), ('Shotgun'), ('Pistol'), ('Revolver'), ('Bolt Action'), ('Semi-Automatic'), ('Lever Action');
 
 
-INSERT INTO ads(user_id, title, description, cost, category) VALUES
-    ('1', 'Hellcat Pro', 'flush fitting 15-round magazine', '670.00','3,7');
-
-
-
-
-INSERT INTO ad_categories(ad_id, category_id) VALUE
-    ('1', '3');
+# INSERT INTO ads(user_id, title, description, cost, category) VALUES
+#     ('1', 'Hellcat Pro', 'flush fitting 15-round magazine', '670.00','3,7');
+#
+#
+#
+#
+# INSERT INTO ad_categories(ad_id, category_id) VALUE
+#     ('1', '3');
