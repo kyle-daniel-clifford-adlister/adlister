@@ -17,6 +17,14 @@
                     <li><a href="/logout">Logout</a></li>
                 </c:otherwise>
             </c:choose>
+
+
+            <c:if test="${user == null}">
+                <li><a href="/register">Register</a></li>
+            </c:if>
+
+            <li><a href="/profile">Profile</a></li>
+
         </ul>
     </div><!-- /.navbar-collapse -->
 </nav>
