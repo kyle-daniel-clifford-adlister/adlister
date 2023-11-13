@@ -19,9 +19,9 @@
             </c:choose>
 
 
-            <c:if test="${user == null}">
-                <li><a href="/register">Register</a></li>
-            </c:if>
+<%--            <c:if test="${user == null}">--%>
+<%--                <li><a href="/register">Register</a></li>--%>
+<%--            </c:if>--%>
 
             <li><a href="/profile">Profile</a></li>
 

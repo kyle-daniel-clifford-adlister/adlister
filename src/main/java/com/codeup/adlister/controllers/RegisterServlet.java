@@ -13,10 +13,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.sql.Connection;
 
 @WebServlet(name = "controllers.RegisterServlet", urlPatterns = "/register")
 public class RegisterServlet extends HttpServlet {
+    Connection connection = null;
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
     }
@@ -27,20 +28,30 @@ public class RegisterServlet extends HttpServlet {
         String password = request.getParameter("password");
         String passwordConfirmation = request.getParameter("confirm_password");
         HttpSession session = request.getSession();
-
+        //STORES Input into fields
+        session.setAttribute("username",username);
+        session.setAttribute("email",email);
+        //RESETS Errors
+        session.setAttribute("error",false);
+        session.setAttribute("hacker",false);
         // validate input
         boolean inputHasErrors = username.isEmpty()
             || email.isEmpty()
             || password.isEmpty()
             || (! password.equals(passwordConfirmation));
-
         if (inputHasErrors) {
-            session.setAttribute("error",inputHasErrors);
             response.sendRedirect("/register");
             return;
         }
-       User checkingUser = DaoFactory.getUsersDao().findByUsername(username);
+        if (username.contains("<")||username.contains(">")||username.contains("(")||username.contains(")")||email.contains("<")||email.contains(">")||email.contains("(")||email.contains(")")){
+            session.setAttribute("hacker",true);
+            response.sendRedirect("/register");
+            return;
+        }
+        User checkingUser = DaoFactory.getUsersDao().findByUsername(username);
+        //USER HAS TO NOT BE FOUND TO ADD TO DATABASE
         if(checkingUser == null) {
+            session.setAttribute("hacker",false);
             // create and save a new user
             User user = new User(username, email, password);
 
@@ -54,11 +65,8 @@ public class RegisterServlet extends HttpServlet {
             response.sendRedirect("/login");
         }
         else {
-            response.setContentType("text/html");
-            PrintWriter out = response.getWriter();
-            System.out.println("You will see this in the console");
-            response.getWriter().println("You should see this in the browser");
-            out.println("<script>alert("+"Hello, World!"+")</script>");
+            //IF USER IS FOUND, ERROR MESSAGE POPULATES
+            session.setAttribute("error",true);
             response.sendRedirect("/register");
         }
     }
