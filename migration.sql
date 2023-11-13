@@ -1,15 +1,9 @@
 USE adlister_db;
 
-DROP TABLE IF EXISTS ads;
-DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS ad_categories;
 DROP TABLE IF EXISTS categories;
-<<<<<<< HEAD
 DROP TABLE IF EXISTS ads;
 DROP TABLE IF EXISTS users;
-=======
->>>>>>> refs/remotes/origin/main
-
 
 CREATE TABLE if not exists users (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
