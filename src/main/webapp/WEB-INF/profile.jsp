@@ -20,6 +20,7 @@
         <div class="tab">
             <h1>Update Login Info: </h1>
             <label id="usernameLabel">Username</label>
+            <input type="hidden" name="id" value="${sessionScope.user.id}">
             <p><input id="username" class="username" type="text" name="username"></p>
             <label id="newEmailLabel">Email</label>
             <p><input id="email" class="email" type="email" name="email"></p>
