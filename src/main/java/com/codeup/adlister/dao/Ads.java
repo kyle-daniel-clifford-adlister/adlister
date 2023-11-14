@@ -17,4 +17,5 @@ public interface Ads {
 
     List<Ad> find(String catId);
 
+    List<Ad>findbyuserid(Long user_id);
 }

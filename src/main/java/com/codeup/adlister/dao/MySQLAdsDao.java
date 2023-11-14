@@ -50,6 +50,29 @@ public class MySQLAdsDao implements Ads {
             }
         }
     }
+    public List<Ad>findbyuserid(Long user_id){
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        try {
+            stmt = connection.prepareStatement("SELECT * FROM ads where user_id like ?");
+            stmt.setLong(1,user_id);
+            rs = stmt.executeQuery();
+            return createAdsFromResults(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving all ads.", e);
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (stmt != null) {
+                    stmt.close();
+                }
+            } catch (SQLException e) {
+                throw new RuntimeException("Error closing resources.", e);
+            }
+        }
+    }
 
     @Override
     public Long insert(Ad ad) {
