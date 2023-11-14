@@ -32,12 +32,16 @@
             <h2>${ad.title}</h2>
             <p>${ad.description}</p>
             <p>$${ad.cost}</p>
+<%--            TODO decide if needed to show--%>
             <p>${ad.userId}</p>
 
-            <p>Categories:</p>
-            <c:forEach var="category" items="${ad.category}">
-                <p>${category}</p>
-            </c:forEach>
+<%--            <p>Categories:</p>--%>
+
+<%--        <c:forEach var="category" items="${cat}">--%>
+<%--                    <c:forEach var="catname" items="${category}">--%>
+<%--            <p>${catname}</p>--%>
+<%--                    </c:forEach>--%>
+<%--        </c:forEach>--%>
         </div>
     </c:forEach>
 </div>

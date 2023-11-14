@@ -1,5 +1,6 @@
 package com.codeup.adlister.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Ad {
@@ -7,19 +8,29 @@ public class Ad {
     private long userId;
     private String title;
     private String description;
-    private String category;
+    private ArrayList<String> category;
     private double cost;
 
-    public Ad(long id, long userId, String title, String description, double cost, String category) {
+    public Ad(long id, long userId, String title, String description, double cost) {
         this.id = id;
         this.userId = userId;
         this.title = title;
         this.description = description;
         this.cost = cost;
-        this.category = category;
+    }
+    public Ad(long userId, String title, String description, double cost) {
+        this.userId = userId;
+        this.title = title;
+        this.description = description;
+        this.cost = cost;
     }
 
-    public Ad(long id, String title, String description, double cost, List<String> categoryNames) {
+    public Ad(long userId, String title, String description, double cost, ArrayList<String>category) {
+        this.userId = userId;
+        this.title = title;
+        this.description = description;
+        this.cost = cost;
+        this.category = category;
     }
 
     // Getters and Setters
@@ -56,11 +67,11 @@ public class Ad {
         this.description = description;
     }
 
-    public String getCategory() {
+    public ArrayList<String> getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(ArrayList<String> category) {
         this.category = category;
     }
 

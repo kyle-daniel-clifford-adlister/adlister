@@ -1,5 +1,33 @@
 <link rel="stylesheet" href="../../css/createAd.css">
 
+<!-- MERGE START -->
+<!-- <!--         <div class="form-group">
+<%--            TODO Convert back to values back to names if numbers don't work--%>
+            <label>Type:</label><br>
+            <label class="checkbox-inline">
+                <input type="checkbox" name="categories" value="1"> Rifle
+            </label>
+            <label class="checkbox-inline">
+                <input type="checkbox" name="categories" value="2"> Shotgun
+            </label>
+            <label class="checkbox-inline">
+                <input type="checkbox" name="categories" value="3"> Pistol
+            </label>
+            <label class="checkbox-inline">
+                <input type="checkbox" name="categories" value="4"> Revolver
+            </label>
+            <label class="checkbox-inline">
+                <input type="checkbox" name="categories" value="5"> Bolt Action
+            </label>
+            <label class="checkbox-inline">
+                <input type="checkbox" name="categories" value="6"> Lever Action
+            </label>
+            <label class="checkbox-inline">
+                <input type="checkbox" name="categories" value="7"> Semi-Automatic
+            </label>
+        </div> -->
+
+<!-- MAIN BELOW -->
 <html>
     <head>
         <jsp:include page="/WEB-INF/partials/head.jsp">
@@ -48,6 +76,7 @@
                         <input type="checkbox" name="categories[]" value="Semi-Automatic"> Semi-Automatic
                     </label>
                 </div>
+<!-- MERGE ENDING -->
 
                 <button class="btn">
                     <span class="btn-text-one">Post</span>
