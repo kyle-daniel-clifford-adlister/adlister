@@ -18,8 +18,8 @@
             <option value="3">Pistol</option>
             <option value="4">Revolver</option>
             <option value="5">Bolt Action</option>
-            <option value="6">Semi-Automatic</option>
-            <option value="7">Lever Action</option>
+            <option value="6">Lever-Action</option>
+            <option value="7">Semi-Automatic</option>
         </select>
         <input type="submit" id="searchButton" class="searchButton" name="searchButton" value="Search">
     </form>

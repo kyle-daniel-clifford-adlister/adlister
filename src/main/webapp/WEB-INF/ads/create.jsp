@@ -55,25 +55,25 @@
                 <div class="form-group">
                     <label>Type:</label><br>
                     <label class="checkbox-inline">
-                        <input type="checkbox" name="categories[]" value="Rifle"> Rifle
+                        <input type="checkbox" name="categories[]" value="1"> Rifle
                     </label>
                     <label class="checkbox-inline">
-                        <input type="checkbox" name="categories[]" value="Shotgun"> Shotgun
+                        <input type="checkbox" name="categories[]" value="2"> Shotgun
                     </label>
                     <label class="checkbox-inline">
-                        <input type="checkbox" name="categories[]" value="Pistol"> Pistol
+                        <input type="checkbox" name="categories[]" value="3"> Pistol
                     </label>
                     <label class="checkbox-inline">
-                        <input type="checkbox" name="categories[]" value="Revolver"> Revolver
+                        <input type="checkbox" name="categories[]" value="4"> Revolver
                     </label>
                     <label class="checkbox-inline">
-                        <input type="checkbox" name="categories[]" value="Bolt Action"> Bolt Action
+                        <input type="checkbox" name="categories[]" value="5"> Bolt Action
                     </label>
                     <label class="checkbox-inline">
-                        <input type="checkbox" name="categories[]" value="Lever Action"> Lever Action
+                        <input type="checkbox" name="categories[]" value="6"> Semi-Automatic
                     </label>
                     <label class="checkbox-inline">
-                        <input type="checkbox" name="categories[]" value="Semi-Automatic"> Semi-Automatic
+                        <input type="checkbox" name="categories[]" value="7"> Lever Action
                     </label>
                 </div>
 <!-- MERGE ENDING -->

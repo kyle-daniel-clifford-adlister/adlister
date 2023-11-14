@@ -90,23 +90,23 @@ public class MySQLAdsDao implements Ads {
         return ad_id;
     }
     public List<String>getCatNames(Long ad_id) {
-        List<String>listnames = new ArrayList<>();
-            PreparedStatement stmt = null;
-            ResultSet rs = null;
-            String query = "select name from categories join ad_categories ac on categories.id = ac.category_id join ads a on a.id = ac.ad_id where ad_id LIKE ?;";
-            try {
-                stmt = connection.prepareStatement(query);
-                //TODO Get ad_id in set String
-                stmt.setLong(1,ad_id);
-                rs = stmt.executeQuery();
-                while(rs.next()){
-                    listnames.add(rs.getString(1));
-                }
-                return listnames;
-            } catch (SQLException e) {
-                throw new RuntimeException("Error retrieving all ads.", e);
+        List<String> listnames = new ArrayList<>();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        String query = "select name from categories join ad_categories ac on categories.id = ac.category_id join ads a on a.id = ac.ad_id where ad_id LIKE ?;";
+        try {
+            stmt = connection.prepareStatement(query);
+            //TODO Get ad_id in set String
+            stmt.setLong(1, ad_id);
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                listnames.add(rs.getString(1));
             }
-
+            return listnames;
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving all ads.", e);
+        }
+    }
     @Override
     public List<Ad> find(String catId) {
         String query = "SELECT a.*, c.* FROM ad_categories ac JOIN ads a ON a.id = ac.ad_id JOIN categories c ON c.id = ac.category_id WHERE c.id = ? ";
