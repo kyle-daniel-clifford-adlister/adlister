@@ -1,15 +1,10 @@
 :root {
-    --primary-color: #ccc;
-    --secondary-color: #000;
+    --primary-color: #888;
+    --secondary-color: #fff;
 }
 
 body{
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
 }
 
 .container {
@@ -26,10 +21,10 @@ form {
     align-items: center;
     width: calc(60% - 10px);
     gap: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
     border-radius: 12px;
     padding: 20px;
-    background-color: #f8f8f8;
+    background: linear-gradient(5deg, var(--primary-color), var(--secondary-color));
 }
 
 h1, input, button {
@@ -50,3 +45,49 @@ label {
     width: 75px;
     text-align: right;
 }
+
+.btn {
+    width: 140px;
+    height: 50px;
+    background: #f0f0f0;
+    color: #000;
+    border-radius: 50px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+.btn span {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: top 0.5s;
+}
+
+.btn-text-one {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.btn-text-two {
+    position: absolute;
+    width: 100%;
+    top: 150%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.btn:hover .btn-text-one {
+    top: -100%;
+}
+
+.btn:hover .btn-text-two {
+    top: 50%;
+}
+

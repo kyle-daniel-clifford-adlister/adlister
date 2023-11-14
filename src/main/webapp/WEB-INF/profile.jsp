@@ -29,13 +29,12 @@
             <label id="confirmPasswordLabel">Password</label>
             <p><input id="confirm_password" class="password" type="password" name="confirm_password"></p>
         </div>
-
-        <div style="overflow:auto;">
-            <div style="float:left;">
-                <button type="submit" id="submit" >Submit</button>
+                <button class="btn">
+                    <span class="btn-text-one">Update</span>
+                    <span class="btn-text-two">Click</span>
+                </button>
             </div>
-        </div>
-    </form>
+        </form>
 
 
 </body>
