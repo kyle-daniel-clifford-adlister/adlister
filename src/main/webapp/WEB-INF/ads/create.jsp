@@ -70,10 +70,10 @@
                         <input type="checkbox" name="categories[]" value="5"> Bolt Action
                     </label>
                     <label class="checkbox-inline">
-                        <input type="checkbox" name="categories[]" value="6"> Semi-Automatic
+                        <input type="checkbox" name="categories[]" value="6"> Lever Action
                     </label>
                     <label class="checkbox-inline">
-                        <input type="checkbox" name="categories[]" value="7"> Lever Action
+                        <input type="checkbox" name="categories[]" value="7"> Semi-Automatic
                     </label>
                 </div>
 <!-- MERGE ENDING -->

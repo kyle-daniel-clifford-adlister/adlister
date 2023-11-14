@@ -29,22 +29,24 @@
 
     <c:forEach var="ad" items="${ads}">
         <div class="col-md-6">
+            <img src="https://www.imfdb.org/wiki/File:AK-74.jpg">
             <h2>${ad.title}</h2>
             <p>${ad.description}</p>
-            <p>$${ad.cost}</p>
-<%--            TODO decide if needed to show--%>
-            <p>${ad.userId}</p>
+            <p> Cost $${ad.cost}</p>
+            <p>User ID  ${ad.userId}</p>
 
-<%--            <p>Categories:</p>--%>
-
-<%--        <c:forEach var="category" items="${cat}">--%>
-<%--                    <c:forEach var="catname" items="${category}">--%>
-<%--            <p>${catname}</p>--%>
-<%--                    </c:forEach>--%>
-<%--        </c:forEach>--%>
+            <c:if test="${ad.userId eq sessionScope.loggedInUserId}">
+                <!-- Display content only if the current user created the ad -->
+                <form action="/ads/${ad.id}" method="post">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input type="submit" value="Delete">
+                </form>
+            </c:if>
         </div>
     </c:forEach>
 </div>
+<form>
 
+</form>
 </body>
 </html>

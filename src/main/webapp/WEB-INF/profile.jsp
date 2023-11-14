@@ -42,6 +42,8 @@
             <p>${ad.userId}</p>
         </div>
     </c:forEach>
+            </div>
+        </form>
 </body>
 </html>
 
