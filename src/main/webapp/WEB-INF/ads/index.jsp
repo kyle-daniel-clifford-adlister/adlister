@@ -29,6 +29,7 @@
 
     <c:forEach var="ad" items="${ads}">
         <div class="col-md-6">
+            <img src="https://www.imfdb.org/wiki/File:AK-74.jpg">
             <h2>${ad.title}</h2>
             <p>${ad.description}</p>
             <p> Cost $${ad.cost}</p>
@@ -44,6 +45,8 @@
         </div>
     </c:forEach>
 </div>
+<form>
 
+</form>
 </body>
 </html>
