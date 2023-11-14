@@ -13,4 +13,12 @@ public class Password {
         System.out.println(BCrypt.checkpw(password, hash));
         return BCrypt.checkpw(password, hash);
     }
+
+    public String getPassword() {
+        return null;
+    }
+
+    public long getId() {
+        return 0;
+    }
 }

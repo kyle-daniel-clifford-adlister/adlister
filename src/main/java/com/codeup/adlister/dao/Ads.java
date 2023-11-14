@@ -15,5 +15,5 @@ public interface Ads {
 
     List<String>getCatNames(Long ad_id);
 
-//    Ad findAd(long id);
+    List<Ad> find(String catId);
 }
