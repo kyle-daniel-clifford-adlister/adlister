@@ -40,10 +40,19 @@
             <p>$${ad.cost}</p>
         <%--            TODO decide if needed to show--%>
             <p>${ad.userId}</p>
+       <form action="/ads/${ad.id}" method="post">
+                <input type="hidden" name="_method" value="DELETE">
+                <input type="submit" value="Delete">
+            </form>
         </div>
+
+            <!-- Display content only if the current user created the ad -->
+
+
+
+
     </c:forEach>
-            </div>
-        </form>
+
 </body>
 </html>
 

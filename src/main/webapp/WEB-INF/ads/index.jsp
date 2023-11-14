@@ -34,13 +34,7 @@
             <p> Cost $${ad.cost}</p>
             <p>User ID  ${ad.userId}</p>
 
-            <c:if test="${ad.userId eq sessionScope.loggedInUserId}">
-                <!-- Display content only if the current user created the ad -->
-                <form action="/ads/${ad.id}" method="post">
-                    <input type="hidden" name="_method" value="DELETE">
-                    <input type="submit" value="Delete">
-                </form>
-            </c:if>
+
         </div>
     </c:forEach>
 </div>
