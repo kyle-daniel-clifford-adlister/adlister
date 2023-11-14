@@ -25,9 +25,10 @@
 
 <%--            <li><a href="/profile">Profile</a></li>--%>
         </ul>
-        <form class="d-flex nav navbar-nav navbar-right" role="search">
-            <input class="form-control me-2" style="width: 120px;" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
+<%--        Possible search bar--%>
+<%--        <form class="d-flex container-fluid nav navbar-nav navbar-right" role="search">--%>
+<%--            <input class="form-control me-2" style="width: 120px;" type="search" placeholder="Search" aria-label="Search">--%>
+<%--            <button class="btn btn-outline-success" type="submit">Search</button>--%>
+<%--        </form>--%>
     </div><!-- /.navbar-collapse -->
 </nav>
