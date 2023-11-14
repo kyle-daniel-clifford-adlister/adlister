@@ -30,24 +30,31 @@ public class CreateAdServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         User loggedInUser = (User) request.getSession().getAttribute("user");
+//        TODO convert to String if doesn't work
+        ArrayList<Integer> categoryNames = new ArrayList<>();
 
         String[] categories = request.getParameterValues("categories");
-
-        List<String> categoryNames = new ArrayList<>();
-
-        if (categories != null && categories.length > 0) {
-            categoryNames.addAll(Arrays.asList(categories));
+        for (String cateory:categories) {
+            int value = Integer.parseInt(cateory);
+            System.out.println(value);
+            categoryNames.add(value);
         }
+        //TODO Use RegisterServlet as guide to populate ad values into table
+
+//        if (categories != null && categories.length > 0) {
+//            categoryNames.addAll(Arrays.asList(categories));
+//        }
 
         Ad ad = new Ad(
                 loggedInUser.getId(),
                 request.getParameter("title"),
                 request.getParameter("description"),
-                Double.parseDouble(request.getParameter("cost")),
-                categoryNames
+                Double.parseDouble(request.getParameter("cost"))
         );
 
-        DaoFactory.getAdsDao().insert(ad);
+        Long ad_id = DaoFactory.getAdsDao().insert(ad);
+        DaoFactory.getAdsDao().insertAdCategories(ad_id,categoryNames);
+        DaoFactory.getAdsDao().getCatNames(ad_id);
         response.sendRedirect("/ads");
     }
 

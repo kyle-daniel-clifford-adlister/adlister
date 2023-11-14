@@ -3,14 +3,17 @@ package com.codeup.adlister.dao;
 
 import com.codeup.adlister.models.Ad;
 import com.codeup.adlister.util.Config;
+import com.mysql.cj.Session;
 import com.mysql.cj.jdbc.Driver;
 
+import javax.servlet.http.HttpSession;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MySQLAdsDao implements Ads {
     private Connection connection = null;
+
 
     public MySQLAdsDao(Config config) {
         try {
@@ -63,7 +66,6 @@ public class MySQLAdsDao implements Ads {
             rs.next();
             long adId = rs.getLong(1);
 
-            insertAdCategories(adId, ad.getCategoryNames());
 
             return adId;
         } catch (SQLException e) {
@@ -71,18 +73,49 @@ public class MySQLAdsDao implements Ads {
         }
 
         }
-
-    private void insertAdCategories(long adId, Object categoryNames) {
+        @Override
+        public Long insertAdCategories(Long ad_id, ArrayList<Integer> categoryNames) {
+        for (int num:categoryNames) {
+            try{
+                String insertQuery = "INSERT INTO ad_categories (ad_id, category_id) VALUES (?, ?)";
+                PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
+                stmt.setLong(1, ad_id);
+                stmt.setInt(2, num);
+                stmt.executeUpdate();
+                ResultSet rs = stmt.getGeneratedKeys();
+                rs.next();
+            }catch (SQLException e){
+                System.out.println(e);
+            }
+        }
+        return ad_id;
+    }
+    public List<String>getCatNames(Long ad_id) {
+        List<String>listnames = new ArrayList<>();
+            PreparedStatement stmt = null;
+            ResultSet rs = null;
+            String query = "select name from categories join ad_categories ac on categories.id = ac.category_id join ads a on a.id = ac.ad_id where ad_id LIKE ?;";
+            try {
+                stmt = connection.prepareStatement(query);
+                //TODO Get ad_id in set String
+                stmt.setLong(1,ad_id);
+                rs = stmt.executeQuery();
+                while(rs.next()){
+                    listnames.add(rs.getString(1));
+                }
+                return listnames;
+            } catch (SQLException e) {
+                throw new RuntimeException("Error retrieving all ads.", e);
+            }
     }
 
     private Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(
-                rs.getLong("id"),
-                rs.getLong("user_id"),
-                rs.getString("title"),
-                rs.getString("description"),
-                rs.getInt("cost"),
-                rs.getString("category")
+        rs.getLong("id"),
+        rs.getLong("user_id"),
+        rs.getString("title"),
+        rs.getString("description"),
+        rs.getDouble("cost")
         );
     }
 
@@ -93,4 +126,12 @@ public class MySQLAdsDao implements Ads {
         }
         return ads;
     }
+    private List<String> createAdsListFromResults(ResultSet rs) throws SQLException {
+        List<String> list = new ArrayList<>();
+        while (rs.next()) {
+            list.add(rs.getString("name"));
+        }
+        return list;
+    }
+
 }
