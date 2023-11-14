@@ -17,4 +17,8 @@ public interface Ads {
 
     List<Ad> find(String catId);
 
+    Ad findById(Long id);
+
+    List<Ad> update(Ad ads);
+
 }

@@ -27,22 +27,26 @@
 
     <jsp:useBean id="ads" scope="request" type="java.util.List"/>
 
-    <c:forEach var="ad" items="${ads}">
-        <div class="col-md-6">
-            <h2>${ad.title}</h2>
-            <p>${ad.description}</p>
-            <p> Cost $${ad.cost}</p>
-            <p>User ID  ${ad.userId}</p>
+        <c:forEach var="ad" items="${ads}">
+            <form id="updateAdForm" action="/updatead" method="POST">
+                <div class="col-md-6">
+                    <h2>${ad.title}</h2>
+                    <p>${ad.description}</p>
+                    <p> Cost $${ad.cost}</p>
+                    <p>User ID  ${ad.userId}</p>
 
-            <c:if test="${ad.userId eq sessionScope.loggedInUserId}">
-                <!-- Display content only if the current user created the ad -->
-                <form action="/ads/${ad.id}" method="post">
-                    <input type="hidden" name="_method" value="DELETE">
-                    <input type="submit" value="Delete">
-                </form>
-            </c:if>
-        </div>
-    </c:forEach>
+                    <c:if test="${ad.userId eq sessionScope.loggedInUserId}">
+                        <!-- Display content only if the current user created the ad -->
+                        <form action="/ads/${ad.id}" method="post">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <input type="submit" value="Delete">
+                        </form>
+                    </c:if>
+                    <button type="submit" name="${ad.id}"><a href="/update-ad">Update Ad</a></button>
+                </div>
+            </form>
+        </c:forEach>
+
 </div>
 
 </body>
