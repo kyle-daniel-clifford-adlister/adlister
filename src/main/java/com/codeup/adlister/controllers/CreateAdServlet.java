@@ -34,8 +34,8 @@ public class CreateAdServlet extends HttpServlet {
         ArrayList<Integer> categoryNames = new ArrayList<>();
 
         String[] categories = request.getParameterValues("categories");
-        for (String cateory:categories) {
-            int value = Integer.parseInt(cateory);
+        for (String category:categories) {
+            int value = Integer.parseInt(category);
             System.out.println(value);
             categoryNames.add(value);
         }
