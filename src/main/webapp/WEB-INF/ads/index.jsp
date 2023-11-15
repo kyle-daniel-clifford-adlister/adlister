@@ -5,6 +5,24 @@
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Viewing All The Ads" />
     </jsp:include>
+
+    <style>
+        :root {
+            --primary-color: #888;
+            --secondary-color: #fff;
+        }
+        body{
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        }
+        .adForm {
+            border-radius: 12px;
+            margin: 10px;
+            padding-bottom: 10px;
+            max-width: 400px;
+            box-shadow: 0 0 10px rgba(0, 0, 255, 1);
+            background: linear-gradient(5deg, var(--primary-color), var(--secondary-color));
+        }
+    </style>
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
@@ -23,27 +41,32 @@
         </select>
         <input type="submit" id="searchButton" class="searchButton" name="searchButton" value="Search">
     </form>
-    <h1>Here are all the ads!</h1>
+    <h1>All the Ads!</h1>
 
     <jsp:useBean id="ads" scope="request" type="java.util.List"/>
 
-    <c:forEach var="ad" items="${ads}">
-        <div class="col-md-6">
-            <h2>${ad.title}</h2>
-            <p>${ad.description}</p>
-            <p> Cost $${ad.cost}</p>
-            <p>User ID  ${ad.userId}</p>
+        <c:forEach var="ad" items="${ads}">
+            <form id="updateAdForm" action="/updatead" method="POST">
+                <div class="col-md-6 adForm">
+                    <h2>${ad.title}</h2>
+                    <p>${ad.description}</p>
+                    <p> Cost $${ad.cost}</p>
+                    <p>User ID  ${ad.userId}</p>
 
-            <c:if test="${ad.userId eq sessionScope.loggedInUserId}">
-                <!-- Display content only if the current user created the ad -->
-                <form action="/ads/${ad.id}" method="post">
-                    <input type="hidden" name="_method" value="DELETE">
-                    <input type="submit" value="Delete">
-                </form>
-            </c:if>
-        </div>
-    </c:forEach>
+                    <c:if test="${ad.userId eq sessionScope.loggedInUserId}">
+                        <!-- Display content only if the current user created the ad -->
+                        <form action="/ads/${ad.id}" method="post">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <input type="submit" value="Delete">
+                        </form>
+                    </c:if>
+                    <button type="submit" name="${ad.id}"><a href="/update-ad">Update Ad</a></button>
+                </div>
+            </form>
+        </c:forEach>
 </div>
+<form>
 
+</form>
 </body>
 </html>
