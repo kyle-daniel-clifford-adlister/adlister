@@ -44,9 +44,9 @@ SELECT ads.id from ads join ad_categories on ads.id = ad_categories.ad_id join c
 # select name from categories join ad_categories ac on categories.id = ac.category_id join ads a on a.id = ac.ad_id;
 
 select name from categories join ad_categories ac on categories.id = ac.category_id join ads a on a.id = ac.ad_id;
-
-delete from ad_categories where ad_id = ?
-delete from ads where id = ?
+#
+# delete from ad_categories where ad_id = ?
+# delete from ads where id = ?
 # INSERT INTO ads(user_id, title, description, cost, category) VALUES
 #     ('1', 'Hellcat Pro', 'flush fitting 15-round magazine', '670.00','3,7');
 #

@@ -1,9 +1,0 @@
-:root {
-    --primary-color: #888;
-    --secondary-color: #fff;
-}
-
-body{
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-}
-

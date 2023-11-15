@@ -7,12 +7,18 @@
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<link rel="stylesheet" href="singleAd.jsp">
+
 <html>
 <head>
     <title>Single Ad</title>
+    <jsp:include page="/WEB-INF/partials/head.jsp">
+        <jsp:param name="title" value="Your Profile" />
+    </jsp:include>
+    <link rel="stylesheet" href="../../css/singleAd.css">
+    <link rel="icon" type="image/x-icon" href="../../img/adlister-favcon.png">
 </head>
 <body>
+<jsp:include page="/WEB-INF/partials/navbar.jsp" />
 <div class="container">
     <h1>Ad</h1>
         <div class="col-md-6">
