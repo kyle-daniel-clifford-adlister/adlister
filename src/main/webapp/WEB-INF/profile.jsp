@@ -41,7 +41,7 @@
         <%--            TODO decide if needed to show--%>
             <p>${ad.userId}</p>
        <form action="/ads/${ad.id}" method="post">
-                <input type="hidden" name="_method" value="DELETE">
+                <input type="hidden" name="adId" value="${ad.id}">
                 <input type="submit" value="Delete">
             </form>
         </div>
