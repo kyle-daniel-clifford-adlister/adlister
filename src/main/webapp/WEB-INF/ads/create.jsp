@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="../../css/createAd.css">
 
 <!-- MERGE START -->
-<!-- <!--         <div class="form-group">
+<!--        <div class="form-group">
 <%--            TODO Convert back to values back to names if numbers don't work--%>
             <label>Type:</label><br>
             <label class="checkbox-inline">
