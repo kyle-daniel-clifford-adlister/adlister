@@ -13,8 +13,7 @@
 </head>
 <body>
 <div class="container">
-    <h1></h1>
-<%--    <c:forEach var="ad" items="${ads}">--%>
+    <h1>Ad</h1>
         <div class="col-md-6">
             <h2>${ads.title}</h2>
             <p>${ads.description}</p>

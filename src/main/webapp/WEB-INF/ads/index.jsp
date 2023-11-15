@@ -5,7 +5,7 @@
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Viewing All The Ads" />
     </jsp:include>
-
+    <link rel="icon" type="image/x-icon" href="../WEB-INF/img/adlister-favcon.png">
     <style>
         :root {
             --primary-color: #888;
@@ -36,8 +36,8 @@
             <option value="3">Pistol</option>
             <option value="4">Revolver</option>
             <option value="5">Bolt Action</option>
-            <option value="6">Lever-Action</option>
-            <option value="7">Semi-Automatic</option>
+            <option value="6">Semi-Automatic</option>
+            <option value="7">Lever Action</option>
         </select>
         <input type="submit" id="searchButton" class="searchButton" name="searchButton" value="Search">
     </form>
@@ -46,7 +46,7 @@
     <jsp:useBean id="ads" scope="request" type="java.util.List"/>
 
         <c:forEach var="ad" items="${ads}">
-            <form id="updateAdForm" action="/updatead" method="POST">
+            <form id="updateAdForm" action="/updateAd" method="GET">
                 <div class="col-md-6 adForm">
                     <form action="/ads/singlead/${ad.id}" method="post">
                         <h2><a href="/ads/singlead/${ad.id}">
@@ -66,7 +66,7 @@
                             <input type="submit" value="Delete">
                         </form>
                     </c:if>
-                    <button type="submit" name="${ad.id}"><a href="/update-ad">Update Ad</a></button>
+                    <button type="submit" value="${ad.id}" name="adId">Update Ad</button>
                 </div>
             </form>
         </c:forEach>

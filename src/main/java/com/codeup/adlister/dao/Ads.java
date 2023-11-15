@@ -20,7 +20,7 @@ public interface Ads {
 
     Ad findById(Long id);
 
-    List<Ad> update(Ad ads);
+    void update(Ad ads);
 
 
     List<Ad>findbyuserid(Long user_id);

@@ -167,7 +167,9 @@ public class MySQLAdsDao implements Ads {
         try {
             PreparedStatement stmt = connection.prepareStatement(query);
             stmt.setLong(1, id);
-            return extractAd(stmt.executeQuery());
+            ResultSet rs = stmt.executeQuery();
+            rs.next();
+            return extractAd(rs);
         } catch (SQLException e) {
             throw new RuntimeException("Error finding a user by id", e);
         }
@@ -214,7 +216,7 @@ public class MySQLAdsDao implements Ads {
 
 
     @Override
-    public List<Ad> update(Ad ads) {
+    public void update(Ad ads) {
         String query = "UPDATE ads SET title = ?, description = ?, cost = ? WHERE id = ?";
         try {
             PreparedStatement stmt = connection.prepareStatement(query);
@@ -226,6 +228,5 @@ public class MySQLAdsDao implements Ads {
         } catch (SQLException e) {
             throw new RuntimeException("Error updating user", e);
         }
-        return null;
     }
 }
