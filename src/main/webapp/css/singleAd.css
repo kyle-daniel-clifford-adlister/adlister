@@ -1,0 +1,22 @@
+:root {
+    --primary-color: #888;
+    --secondary-color: #fff;
+}
+
+body{
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    margin-top: 200px;
+    margin-left: 550px;
+    width: 400px;
+    box-shadow: 0 0 10px rgba(0, 0, 255, 1);
+    background: linear-gradient(5deg, var(--primary-color), var(--secondary-color));
+    padding: 75px;
+}
