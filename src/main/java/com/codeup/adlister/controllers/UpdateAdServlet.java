@@ -30,32 +30,32 @@ public class UpdateAdServlet extends HttpServlet {
         request.getRequestDispatcher("/WEB-INF/ads/update-ad.jsp").forward(request, response);
 
     }
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        HttpSession session = request.getSession();
-        DaoFactory.getAdsDao().findById(Long.valueOf("id"));
-        Ad ads = (Ad) request.getAttribute();
-
-        String updatedTitle = request.getParameter("title");
-        String updatedDescription = request.getParameter("description");
-        String updatedCost = request.getParameter("cost");
-
-        String updatedCategories = request.getParameter("categories[]");
-
-
-        if (ads != null) {
-            ads.setTitle(updatedTitle);
-            ads.setDescription(updatedDescription);
-            ads.setCost(Double.parseDouble(updatedCost));
-            DaoFactory.getAdsDao().update(ads);
-
-            // Update the session attribute with the new username
-            session.setAttribute("ads", ads);
-
-            response.sendRedirect("/profile");
-        } else {
-            request.setAttribute("errorMessage", "User not found. Please try again.");
-            request.getRequestDispatcher("/WEB-INF/update-login.jsp").forward(request, response);
-        }
-    }
+//    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+//        HttpSession session = request.getSession();
+//        DaoFactory.getAdsDao().findById(Long.valueOf("id"));
+//        Ad ads = (Ad) request.getAttribute(ads);
+//
+//        String updatedTitle = request.getParameter("title");
+//        String updatedDescription = request.getParameter("description");
+//        String updatedCost = request.getParameter("cost");
+//
+//        String updatedCategories = request.getParameter("categories[]");
+//
+//
+//        if (ads != null) {
+//            ads.setTitle(updatedTitle);
+//            ads.setDescription(updatedDescription);
+//            ads.setCost(Double.parseDouble(updatedCost));
+//            DaoFactory.getAdsDao().update(ads);
+//
+//            // Update the session attribute with the new username
+//            session.setAttribute("ads", ads);
+//
+//            response.sendRedirect("/profile");
+//        } else {
+//            request.setAttribute("errorMessage", "User not found. Please try again.");
+//            request.getRequestDispatcher("/WEB-INF/update-login.jsp").forward(request, response);
+//        }
+//    }
 }
 

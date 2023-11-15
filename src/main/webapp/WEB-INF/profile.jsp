@@ -8,6 +8,7 @@
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Your Profile" />
     </jsp:include>
+    <link rel="icon" type="image/x-icon" href="../img/adlister-favcon.png">
 </head>
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
