@@ -49,6 +49,45 @@ public class MySQLAdsDao implements Ads {
             }
         }
     }
+    public List<Ad>findbyuserid(Long user_id){
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        try {
+            stmt = connection.prepareStatement("SELECT * FROM ads where user_id like ?");
+            stmt.setLong(1,user_id);
+            rs = stmt.executeQuery();
+            return createAdsFromResults(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving all ads.", e);
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (stmt != null) {
+                    stmt.close();
+                }
+            } catch (SQLException e) {
+                throw new RuntimeException("Error closing resources.", e);
+            }
+        }
+    }
+
+    @Override
+    public Ad findAdById(long adId) {
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        try {
+            stmt = connection.prepareStatement("SELECT * FROM ads WHERE id = ?");
+            stmt.setLong(1, adId);
+            rs = stmt.executeQuery();
+            rs.next();
+            return extractAd(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving ad.", e);
+        }
+    }
+
 
     @Override
     public Long insert(Ad ad) {
@@ -159,6 +198,20 @@ public class MySQLAdsDao implements Ads {
             list.add(rs.getString("name"));
         }
         return list;
+    }
+    public void deleteAd(long ad_id){
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        try {
+            stmt = connection.prepareStatement("delete from ad_categories where ad_id = ?");
+            stmt.setLong(1,ad_id);
+            stmt.executeUpdate();
+            stmt = connection.prepareStatement("delete from ads where id = ?");
+            stmt.setLong(1,ad_id);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving all ads.", e);
+        }
     }
 
 
