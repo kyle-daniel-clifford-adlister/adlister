@@ -15,7 +15,7 @@
     <input type="hidden" value="${ad.id}" name="adId">
     <div class="form-group">
       <label for="title">Title</label>
-      <input id="title" name="title" class="form-control" type="text" placeholder="${ad.title}" required>
+      <input id="title" name="title" class="form-control" type="text" value="${ad.title}" required>
     </div>
     <div class="form-group">
       <label for="description">Description</label>
@@ -23,7 +23,7 @@
     </div>
     <div class="form-group">
       <label for="cost">Cost</label>
-      <input id="cost" name="cost" class="form-control" type="number" placeholder="${ad.cost}" step="0.01" required>
+      <input id="cost" name="cost" class="form-control" type="number" value="${ad.cost}" step="0.01" required>
     </div>
 
     <div class="form-group">
