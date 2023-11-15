@@ -3,9 +3,8 @@ package com.codeup.adlister.dao;
 
 import com.codeup.adlister.models.Ad;
 import com.codeup.adlister.util.Config;
-import com.mysql.cj.Session;
 import com.mysql.cj.jdbc.Driver;
-import javax.servlet.http.HttpSession;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -73,6 +72,22 @@ public class MySQLAdsDao implements Ads {
             }
         }
     }
+
+    @Override
+    public Ad findAdById(long adId) {
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        try {
+            stmt = connection.prepareStatement("SELECT * FROM ads WHERE id = ?");
+            stmt.setLong(1, adId);
+            rs = stmt.executeQuery();
+            rs.next();
+            return extractAd(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving ad.", e);
+        }
+    }
+
 
     @Override
     public Long insert(Ad ad) {
@@ -146,6 +161,18 @@ public class MySQLAdsDao implements Ads {
     private void insertAdCategories(long adId, Object categoryNames) {
     }
 
+    @Override
+    public Ad findById(Long id) {
+        String query = "SELECT * FROM ads WHERE id = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setLong(1, id);
+            return extractAd(stmt.executeQuery());
+        } catch (SQLException e) {
+            throw new RuntimeException("Error finding a user by id", e);
+        }
+    }
+
     private Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(
         rs.getLong("id"),
@@ -170,5 +197,35 @@ public class MySQLAdsDao implements Ads {
         }
         return list;
     }
+    public void deleteAd(long ad_id){
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        try {
+            stmt = connection.prepareStatement("delete from ad_categories where ad_id = ?");
+            stmt.setLong(1,ad_id);
+            stmt.executeUpdate();
+            stmt = connection.prepareStatement("delete from ads where id = ?");
+            stmt.setLong(1,ad_id);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving all ads.", e);
+        }
+    }
 
+
+    @Override
+    public List<Ad> update(Ad ads) {
+        String query = "UPDATE ads SET title = ?, description = ?, cost = ? WHERE id = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setString(1, ads.getTitle());
+            stmt.setString(2, ads.getDescription());
+            stmt.setDouble(3, ads.getCost());
+            stmt.setLong(4, ads.getId());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Error updating user", e);
+        }
+        return null;
+    }
 }

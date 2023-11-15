@@ -11,6 +11,7 @@
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Your Profile" />
     </jsp:include>
+    <link rel="icon" type="image/x-icon" href="../img/adlister-favcon.png">
 </head>
 <div>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
@@ -40,10 +41,19 @@
             <p>$${ad.cost}</p>
         <%--            TODO decide if needed to show--%>
             <p>${ad.userId}</p>
+       <form action="/ads/${ad.id}" method="post">
+                <input type="hidden" name="adId" value="${ad.id}">
+                <input type="submit" value="Delete">
+            </form>
         </div>
+
+            <!-- Display content only if the current user created the ad -->
+
+
+
+
     </c:forEach>
-            </div>
-        </form>
+
 </body>
 </html>
 
