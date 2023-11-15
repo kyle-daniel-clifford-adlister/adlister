@@ -32,6 +32,7 @@ public class Ad {
         this.category = category;
     }
 
+
     // Getters and Setters
 
     public long getId() {
