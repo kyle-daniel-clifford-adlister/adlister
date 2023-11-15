@@ -13,7 +13,7 @@
 </head>
 <body>
 <div class="container">
-    <h1></h1>
+    <h1>Ad</h1>
 
     <jsp:useBean id="ad" scope="request" type="java.util.List"/>
 

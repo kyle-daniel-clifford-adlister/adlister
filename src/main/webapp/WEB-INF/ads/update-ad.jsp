@@ -11,18 +11,19 @@
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 <div class="container">
   <h1>Update You Ad Details</h1>
-  <form action="/update-ad" method="post">
+  <form action="/updateAd" method="post">
+    <input type="hidden" value="${ad.id}" name="adId">
     <div class="form-group">
       <label for="title">Title</label>
-      <input id="title" name="title" class="form-control" type="text" required>
+      <input id="title" name="title" class="form-control" type="text" placeholder="${ad.title}" required>
     </div>
     <div class="form-group">
       <label for="description">Description</label>
-      <textarea id="description" name="description" class="form-control" placeholder="Enter description here" required></textarea>
+      <textarea id="description" name="description" class="form-control" placeholder="${ad.description}" required></textarea>
     </div>
     <div class="form-group">
       <label for="cost">Cost</label>
-      <input id="cost" name="cost" class="form-control" type="number" step="0.01" required>
+      <input id="cost" name="cost" class="form-control" type="number" placeholder="${ad.cost}" step="0.01" required>
     </div>
 
     <div class="form-group">

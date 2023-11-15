@@ -19,6 +19,6 @@ public interface Ads {
 
     Ad findById(Long id);
 
-    List<Ad> update(Ad ads);
+    void update(Ad ads);
 
 }
