@@ -14,22 +14,18 @@
 <body>
 <div class="container">
     <h1>Ad</h1>
-
-    <jsp:useBean id="ad" scope="request" type="java.util.List"/>
-
-    <c: var="ad" items="${ad}">
         <div class="col-md-6">
-            <h2>${ad.title}</h2>
-            <p>${ad.description}</p>
-            <p>$${ad.cost}</p>
-            <p>${ad.userId}</p>
+            <h2>${ads.title}</h2>
+            <p>${ads.description}</p>
+            <p>$${ads.cost}</p>
+            <p>${ads.userId}</p>
 
-            <p>Categories:</p>
-            <c: var="category" items="${ad.category}">
-                <p>${category}</p>
-            </c:>
+<%--            <p>Categories:</p>--%>
+<%--            <c:forEach var="category" items="${ads.category}">--%>
+<%--                <p>${category}</p>--%>
+<%--            </c:forEach>--%>
         </div>
-    </c:>
+<%--    </c:forEach>--%>
 </div>
 
 </body>

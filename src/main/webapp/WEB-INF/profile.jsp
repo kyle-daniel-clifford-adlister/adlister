@@ -14,6 +14,7 @@
     <link rel="icon" type="image/x-icon" href="../img/adlister-favcon.png">
 </head>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
+
     <div class="container">
         <div class="adDisplay">
         <form id="newUserForm" action="/updateuser" method="POST">
@@ -36,6 +37,7 @@
             </div>
         </form>
         </div>
+
 
         <c:forEach var="ad" items="${userads}">
             <div class="adDisplay">

@@ -36,8 +36,8 @@
             <option value="3">Pistol</option>
             <option value="4">Revolver</option>
             <option value="5">Bolt Action</option>
-            <option value="6">Lever-Action</option>
-            <option value="7">Semi-Automatic</option>
+            <option value="6">Semi-Automatic</option>
+            <option value="7">Lever Action</option>
         </select>
         <input type="submit" id="searchButton" class="searchButton" name="searchButton" value="Search">
     </form>
@@ -48,7 +48,13 @@
         <c:forEach var="ad" items="${ads}">
             <form id="updateAdForm" action="/updateAd" method="GET">
                 <div class="col-md-6 adForm">
-                    <h2>${ad.title}</h2>
+                    <form action="/ads/singlead/${ad.id}" method="post">
+                        <h2><a href="/ads/singlead/${ad.id}">
+<%--                            <input type="submit" name="${ad.id}" value="">--%>
+
+                                ${ad.title}
+                        </a></h2>
+                    </form>
                     <p>${ad.description}</p>
                     <p> Cost $${ad.cost}</p>
                     <p>User ID  ${ad.userId}</p>
