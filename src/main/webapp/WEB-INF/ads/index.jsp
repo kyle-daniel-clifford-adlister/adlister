@@ -65,6 +65,9 @@
             </form>
         </c:forEach>
 
+<!-- 
+        </div>
+    </c:forEach> -->
 </div>
 
 </body>

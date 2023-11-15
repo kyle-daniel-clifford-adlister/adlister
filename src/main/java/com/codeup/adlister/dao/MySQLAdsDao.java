@@ -74,6 +74,22 @@ public class MySQLAdsDao implements Ads {
     }
 
     @Override
+    public Ad findAdById(long adId) {
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        try {
+            stmt = connection.prepareStatement("SELECT * FROM ads WHERE id = ?");
+            stmt.setLong(1, adId);
+            rs = stmt.executeQuery();
+            rs.next();
+            return extractAd(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving ad.", e);
+        }
+    }
+
+
+    @Override
     public Long insert(Ad ad) {
         try {
             String insertQuery = "INSERT INTO ads (user_id, title, description, cost) VALUES (?, ?, ?, ?)";
@@ -180,6 +196,20 @@ public class MySQLAdsDao implements Ads {
             list.add(rs.getString("name"));
         }
         return list;
+    }
+    public void deleteAd(long ad_id){
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        try {
+            stmt = connection.prepareStatement("delete from ad_categories where ad_id = ?");
+            stmt.setLong(1,ad_id);
+            stmt.executeUpdate();
+            stmt = connection.prepareStatement("delete from ads where id = ?");
+            stmt.setLong(1,ad_id);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving all ads.", e);
+        }
     }
 
 
