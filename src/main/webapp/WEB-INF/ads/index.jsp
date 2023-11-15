@@ -48,7 +48,12 @@
         <c:forEach var="ad" items="${ads}">
             <form id="updateAdForm" action="/updatead" method="POST">
                 <div class="col-md-6 adForm">
-                    <h2>${ad.title}</h2>
+                    <form action="/ads/singlead/${ad.id}" method="post">
+                        <h2><a href="/ads/singlead/${ad.id}">
+<%--                            <input type="submit" name="${ad.id}" value="">--%>
+                                ${ad.title}
+                        </a></h2>
+                    </form>
                     <p>${ad.description}</p>
                     <p> Cost $${ad.cost}</p>
                     <p>User ID  ${ad.userId}</p>

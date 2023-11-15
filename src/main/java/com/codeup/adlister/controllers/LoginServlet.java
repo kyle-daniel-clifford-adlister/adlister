@@ -39,6 +39,7 @@ public class LoginServlet extends HttpServlet {
         if (validAttempt) {
             session.setAttribute("userID",user.getId());
             session.setAttribute("user", user);
+            System.out.println(user.getUsername());
             session.setAttribute("loginStatus", "Logout");
             response.sendRedirect("/profile");
         } else {
