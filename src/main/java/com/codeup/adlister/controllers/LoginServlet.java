@@ -36,8 +36,8 @@ public class LoginServlet extends HttpServlet {
 
         HttpSession session = request.getSession();
         boolean validAttempt = BCrypt.checkpw(password, user.getPassword());
-
         if (validAttempt) {
+            session.setAttribute("userID",user.getId());
             session.setAttribute("user", user);
             session.setAttribute("loginStatus", "Logout");
             response.sendRedirect("/profile");
