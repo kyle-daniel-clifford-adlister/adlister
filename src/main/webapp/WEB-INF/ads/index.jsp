@@ -60,7 +60,6 @@
                             <input type="submit" value="Delete">
                         </form>
                     </c:if>
-                    <button type="submit" value="${ad.id}" name="adId">Update Ad</button>
                 </div>
             </form>
         </c:forEach>
