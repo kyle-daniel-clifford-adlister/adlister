@@ -51,6 +51,7 @@
                     <form action="/ads/singlead/${ad.id}" method="post">
                         <h2><a href="/ads/singlead/${ad.id}">
 <%--                            <input type="submit" name="${ad.id}" value="">--%>
+
                                 ${ad.title}
                         </a></h2>
                     </form>
