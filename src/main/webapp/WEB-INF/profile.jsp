@@ -22,11 +22,11 @@
                 <h1>Update Login Info: </h1>
                 <label id="usernameLabel">Username</label>
                 <input type="hidden" name="id" value="${sessionScope.user.id}">
-                <p><input id="username" class="username" type="text" name="username"></p>
+                <p><input id="username" class="username" type="text" name="username" required></p>
                 <label id="newEmailLabel">Email</label>
-                <p><input id="email" class="email" type="email" name="email"></p>
+                <p><input id="email" class="email" type="email" name="email" required></p>
                 <label id="newPasswordLabel">Password</label>
-                <p><input id="password" class="password" type="password" name="password"></p>
+                <p><input id="password" class="password" type="password" name="password" required></p>
                 <label id="confirmPasswordLabel">Password</label>
                 <p><input id="confirm_password" class="password" type="password" name="confirm_password"></p>
 
