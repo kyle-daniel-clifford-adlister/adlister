@@ -1,7 +1,6 @@
 package com.codeup.adlister.models;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Ad {
     private long id;
