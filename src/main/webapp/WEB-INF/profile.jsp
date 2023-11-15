@@ -46,6 +46,7 @@
                 <input type="submit" value="Delete">
             </form>
         </div>
+        <%-- Display content only if the current user created the ad --%>
 
             <!-- Display content only if the current user created the ad -->
 
