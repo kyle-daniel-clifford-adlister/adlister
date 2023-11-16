@@ -19,16 +19,7 @@
                 </c:otherwise>
             </c:choose>
 
-<%--            <c:if test="${user == null}">--%>
-<%--                <li><a href="/register">Register</a></li>--%>
-<%--            </c:if>--%>
-
-<%--            <li><a href="/profile">Profile</a></li>--%>
         </ul>
-<%--        Possible search bar--%>
-<%--        <form class="d-flex container-fluid nav navbar-nav navbar-right" role="search">--%>
-<%--            <input class="form-control me-2" style="width: 120px;" type="search" placeholder="Search" aria-label="Search">--%>
-<%--            <button class="btn btn-outline-success" type="submit">Search</button>--%>
-<%--        </form>--%>
+
     </div><!-- /.navbar-collapse -->
 </nav>
