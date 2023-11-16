@@ -5,7 +5,7 @@
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Viewing All The Ads" />
     </jsp:include>
-    <link rel="icon" type="image/x-icon" href="../../img/adlister-favcon.png">
+    <link rel="icon" type="image/x-icon" href="../../img/gunFavcon.svg">g">
     <style>
         :root {
             --primary-color: #888;
@@ -18,8 +18,9 @@
             border-radius: 12px;
             margin: 10px;
             padding-bottom: 10px;
-            max-width: 400px;
-            box-shadow: 0 0 10px rgba(0, 0, 255, 1);
+            width: 500px;
+            height: 200px;
+            box-shadow: 0 0 10px rgba(30, 30, 30, 1);
             background: linear-gradient(5deg, var(--primary-color), var(--secondary-color));
         }
     </style>
@@ -41,7 +42,7 @@
         </select>
         <input type="submit" id="searchButton" class="searchButton" name="searchButton" value="Search">
     </form>
-    <h1>All the Ads!</h1>
+    <h1>All Ads!</h1>
 
     <jsp:useBean id="ads" scope="request" type="java.util.List"/>
 

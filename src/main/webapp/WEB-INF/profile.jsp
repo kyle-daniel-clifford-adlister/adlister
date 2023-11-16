@@ -1,18 +1,19 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
-
-<link rel="stylesheet" href="../css/profilePage.css">
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %><html>
-<div class="container text-center">
-    <h1>Welcome, ${sessionScope.user.username}!</h1>
 
-</div>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Your Profile" />
     </jsp:include>
-    <link rel="icon" type="image/x-icon" href="../img/adlister-favcon.png">
+    <link rel="stylesheet" href="../css/profilePage.css">
+    <link rel="icon" type="image/x-icon" href="../img/gunFavcon.svg">
 </head>
+<body>
+    <div class="container text-center">
+        <h1>Welcome, ${sessionScope.user.username}!</h1>
+
+    </div>
+
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
     <div class="container">
@@ -41,8 +42,8 @@
 
         <c:forEach var="ad" items="${userads}">
             <div class="adDisplay">
-                <div class="col-md-6 profileAd">
-                    <h2>${ad.title}</h2>
+                <div class="profileAd">
+                    <h4>${ad.title}</h4>
                     <p>${ad.description}</p>
                     <p>$${ad.cost}</p>
                 <%--            TODO decide if needed to show--%>
