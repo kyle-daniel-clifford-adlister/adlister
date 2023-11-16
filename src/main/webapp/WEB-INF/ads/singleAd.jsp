@@ -12,28 +12,22 @@
 <head>
     <title>Single Ad</title>
     <jsp:include page="/WEB-INF/partials/head.jsp">
-        <jsp:param name="title" value="Your Profile" />
+        <jsp:param name="title" value="Your Profile"/>
     </jsp:include>
     <link rel="stylesheet" href="../../css/singleAd.css">
     <link rel="icon" type="image/x-icon" href="../../img/gunFavcon.svg">
 </head>
 <body>
-<jsp:include page="/WEB-INF/partials/navbar.jsp" />
-<div class="container">
-    <h1>Ad</h1>
+    <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
+    <div class="container">
+        <h1>Ad</h1>
         <div class="col-md-6">
             <h2>${ads.title}</h2>
             <p>${ads.description}</p>
             <p>$${ads.cost}</p>
             <p>${ads.userId}</p>
-
-<%--            <p>Categories:</p>--%>
-<%--            <c:forEach var="category" items="${ads.category}">--%>
-<%--                <p>${category}</p>--%>
-<%--            </c:forEach>--%>
         </div>
-<%--    </c:forEach>--%>
-</div>
+    </div>
 
 </body>
 </html>

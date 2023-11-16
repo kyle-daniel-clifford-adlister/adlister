@@ -17,19 +17,6 @@ import java.util.List;
 public class AdsIndexServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("ads", DaoFactory.getAdsDao().all());
-//        List<List<String>>listoflists = new ArrayList<>();
-//        for (Ad ad:list) {
-//            //Creates the list of categories PER ad
-//            List<String> listofcats = DaoFactory.getAdsDao().getCatNames(ad.getId());
-//            System.out.println(listofcats.toString());
-//            listoflists.add(listofcats);
-//        }
-//        for (List<String> lisst:listoflists) {
-//            for (String cat:lisst) {
-//                System.out.println(cat);
-//            }
-//        }
-//        request.setAttribute("cat",listoflists);
       String gunCategory = request.getParameter("gunCategory");
 
       if (gunCategory == null || gunCategory.equals("All")) {
