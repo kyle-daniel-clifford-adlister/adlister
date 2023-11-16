@@ -4,7 +4,7 @@
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Please Log In" />
     </jsp:include>
-    <link rel="icon" type="image/x-icon" href="../img/adlister-favcon.png">
+    <link rel="icon" type="image/x-icon" href="../img/gunFavcon.svg">
     <link rel="stylesheet" href="../css/loginPage.css">
 </head>
 <body>
