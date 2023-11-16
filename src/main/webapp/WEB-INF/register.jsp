@@ -7,7 +7,7 @@
         <jsp:param name="title" value="Register For Our Site!" />
     </jsp:include>
     <link rel="stylesheet" href="../css/registerPage.css">
-    <link rel="icon" type="image/x-icon" href="../img/adlister-favcon.png">
+    <link rel="icon" type="image/x-icon" href="../img/gunFavcon.svg">
 </head>
 <body>
     <jsp:include page="partials/navbar.jsp" />
