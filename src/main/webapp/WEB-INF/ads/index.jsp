@@ -20,7 +20,7 @@
             padding-bottom: 10px;
             width: 500px;
             height: 200px;
-            box-shadow: 0 0 10px rgba(0, 0, 255, 1);
+            box-shadow: 0 0 10px rgba(30, 30, 30, 1);
             background: linear-gradient(5deg, var(--primary-color), var(--secondary-color));
         }
     </style>

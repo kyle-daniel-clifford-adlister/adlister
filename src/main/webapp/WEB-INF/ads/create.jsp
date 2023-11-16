@@ -58,7 +58,7 @@
                 align-items: center;
                 width: calc(60% - 10px);
                 gap: 10px;
-                box-shadow: 0 0 10px rgba(0, 0, 255, 1);
+                box-shadow: 0 0 10px rgba(30, 30, 30, 1);
                 border-radius: 12px;
                 padding: 20px;
                 background: linear-gradient(5deg, var(--primary-color), var(--secondary-color));
